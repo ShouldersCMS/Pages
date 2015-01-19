@@ -63,9 +63,12 @@ class PagesController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($slug)
 	{
-		//
+		$page = new Pages;
+		$page = $page->where('slug', $slug)->first();
+		
+		return View::make('theme.page', ['page' => $page]);
 	}
 
 
