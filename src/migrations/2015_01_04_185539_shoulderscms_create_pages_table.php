@@ -16,7 +16,7 @@ class ShoulderscmsCreatePagesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('title', 70);
-			$table->string('content');
+			$table->longtext('content');
 			$table->string('description');
 			$table->integer('user_id');
 			$table->string('slug')->unique();
