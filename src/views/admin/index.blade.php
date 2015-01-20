@@ -16,8 +16,8 @@
                                     <table class="table table-striped">
                                         <tbody><tr>
                                             <th style="width: 10px">ID</th>
-                                            <th style="width: 60%">Page</th>
-                                            <th>Progress</th>
+                                            <th style="width: 40%">Page</th>
+                                            <th>Actions</th>
                                         </tr>
                                         @foreach ($pages as $page)
                                         <tr>
@@ -25,10 +25,13 @@
                                             <td>{{ $page->title }}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="/admin/pages/edit/{{ $page->id }}" class="btn btn-info">
+                                                    <a href="/admin/pages/edit/{{ $page->id }}" class="btn btn-default btn-sm">
                                                         <i class="fa fa-fw fa-pencil"></i> Edit
                                                     </a>
-                                                    <a href="/admin/pages/delete/{{ $page->id }}" class="btn btn-info">
+                                                    <a href="/page/{{ $page->slug }}" class="btn btn-default btn-sm">
+                                                        <i class="fa fa-fw fa-external-link"></i> View
+                                                    </a>
+                                                    <a href="/admin/pages/delete/{{ $page->id }}" class="btn btn-default btn-sm">
                                                         <i class="fa fa-fw fa-times-circle"></i> Delete
                                                     </a>
                                                 </div>
