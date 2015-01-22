@@ -4,6 +4,7 @@ Route::any('admin/pages/store', 'Shoulderscms\Pages\Controllers\PagesController@
 Route::get('admin/pages', 'Shoulderscms\Pages\Controllers\PagesController@index');
 Route::get('admin/pages/edit/{id}', 'Shoulderscms\Pages\Controllers\PagesController@edit');
 Route::any('admin/pages/update/{id}', 'Shoulderscms\Pages\Controllers\PagesController@update');
+Route::get('admin/pages/delete/{id}', 'Shoulderscms\Pages\Controllers\PagesController@destroy');
 
 Route::get('page/{slug}', 'Shoulderscms\Pages\Controllers\PagesController@show');
 
