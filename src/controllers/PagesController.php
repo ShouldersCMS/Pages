@@ -122,7 +122,10 @@ class PagesController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$page = new Pages;
+		$page = $page->findOrFail($id);
+		$page->delete();
+		return Redirect::to('admin/pages');
 	}
 
 
