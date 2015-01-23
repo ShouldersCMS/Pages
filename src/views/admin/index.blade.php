@@ -25,10 +25,10 @@
                                             <td>{{ $page->title }}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    {{ Form::open(array('url' => '/admin/pages/' . $page->id . '/edit')) }}
+                                                    {{ Form::open(array('url' => '/admin/pages/' . $page->id . '/edit', 'method' => 'get')) }}
                                                         {{ Form::button('<i class="fa fa-fw fa-pencil"></i> Edit', ['class' => 'btn btn-default btn-sm', 'type' => 'submit']) }}
                                                     {{ Form::close() }}
-                                                    {{ Form::open(array('url' => '/page/'.$page->slug)) }}
+                                                    {{ Form::open(array('url' => '/page/'.$page->slug, 'method' => 'get')) }}
                                                         {{ Form::button('<i class="fa fa-fw fa-external-link"></i> View', ['class' => 'btn btn-default btn-sm', 'type' => 'submit']) }}
                                                     {{ Form::close() }}
                                                     {{ Form::open(array('url' => '/admin/pages/'. $page->id . '', 'method' => 'delete')) }}
