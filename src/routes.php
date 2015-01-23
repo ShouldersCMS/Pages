@@ -1,11 +1,5 @@
 <?php 
-Route::get('admin/pages/create', 'Shoulderscms\Pages\Controllers\PagesController@create');
-Route::any('admin/pages/store', 'Shoulderscms\Pages\Controllers\PagesController@store');
-Route::get('admin/pages', 'Shoulderscms\Pages\Controllers\PagesController@index');
-Route::get('admin/pages/edit/{id}', 'Shoulderscms\Pages\Controllers\PagesController@edit');
-Route::any('admin/pages/update/{id}', 'Shoulderscms\Pages\Controllers\PagesController@update');
-Route::get('admin/pages/delete/{id}', 'Shoulderscms\Pages\Controllers\PagesController@destroy');
-
+Route::resource('admin/pages', 'Shoulderscms\Pages\Controllers\PagesController');
 Route::get('page/{slug}', 'Shoulderscms\Pages\Controllers\PagesController@show');
 
 Menu::get('AdminNav')->add('Pages', array('url' => 'admin/pages', 'icon' => 'fa fa-file-o', 'class' => 'test'))->data('order', 10);

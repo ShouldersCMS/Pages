@@ -2,9 +2,10 @@
 
 @section('main')
     @if (!empty($page))
-	   {{ Form::model($page, array('url' => ['admin/pages/update', $page['id']])) }}
+	   {{ Form::model($page, array('url' => ['admin/pages', $page['id']], 'method' => 'put')) }}
+
     @else
-        {{ Form::model($page, array('url' => 'admin/pages/store')) }}
+        {{ Form::model($page, array('url' => 'admin/pages')) }}
     @endif
     
 	 <!-- Main content -->

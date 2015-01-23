@@ -1,7 +1,7 @@
 @extends('shoulderscms::AdminLTE.layouts.master')
 
 @section('main')
-	{{ Form::open(array('url' => 'admin/pages/store')) }}
+	
 	 <!-- Main content -->
             <section class="content">
 
@@ -25,15 +25,15 @@
                                             <td>{{ $page->title }}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="/admin/pages/edit/{{ $page->id }}" class="btn btn-default btn-sm">
-                                                        <i class="fa fa-fw fa-pencil"></i> Edit
-                                                    </a>
-                                                    <a href="/page/{{ $page->slug }}" class="btn btn-default btn-sm">
-                                                        <i class="fa fa-fw fa-external-link"></i> View
-                                                    </a>
-                                                    <a href="/admin/pages/delete/{{ $page->id }}" class="btn btn-default btn-sm">
-                                                        <i class="fa fa-fw fa-times-circle"></i> Delete
-                                                    </a>
+                                                    {{ Form::open(array('url' => '/admin/pages/' . $page->id . '/edit')) }}
+                                                        {{ Form::button('<i class="fa fa-fw fa-pencil"></i> Edit', ['class' => 'btn btn-default btn-sm', 'type' => 'submit']) }}
+                                                    {{ Form::close() }}
+                                                    {{ Form::open(array('url' => '/page/'.$page->slug)) }}
+                                                        {{ Form::button('<i class="fa fa-fw fa-external-link"></i> View', ['class' => 'btn btn-default btn-sm', 'type' => 'submit']) }}
+                                                    {{ Form::close() }}
+                                                    {{ Form::open(array('url' => '/admin/pages/'. $page->id . '', 'method' => 'delete')) }}
+                                                        {{ Form::button('<i class="fa fa-fw fa-times-circle"></i> Delete', ['class' => 'btn btn-default btn-sm', 'type' => 'submit'])}}
+                                                    {{ Form::close() }}
                                                 </div>
                                             </td>
                                         </tr>
@@ -65,7 +65,7 @@
                 </div>
             </section>
 
-            {{ Form::close() }}
+            
 
             <script type="text/javascript">
 
