@@ -1,22 +1,22 @@
 @extends('shoulderscms::AdminLTE.layouts.master')
 
 @section('main')
-	
-	 <!-- Main content -->
+    
+     <!-- Main content -->
             <section class="content">
 
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-md-8">
-						<div class="box box-info">
+                        <div class="box box-info">
                                 <div class="box-header">
-                                    <h3 class="box-title">Manage Pages</h3>
+                                    <h3 class="box-title">Manage Posts</h3>
                                 </div><!-- /.box-header -->
                                 <div class="box-body no-padding">
                                     <table class="table table-striped">
                                         <tbody><tr>
                                             <th style="width: 10px">ID</th>
-                                            <th style="width: 40%">Page</th>
+                                            <th style="width: 40%">Post</th>
                                             <th>Actions</th>
                                         </tr>
                                         @foreach ($pages as $page)
@@ -25,13 +25,13 @@
                                             <td>{{ $page->title }}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    {{ Form::open(array('url' => '/admin/pages/' . $page->id . '/edit', 'method' => 'get')) }}
+                                                    {{ Form::open(array('url' => '/admin/blog/' . $page->id . '/edit', 'method' => 'get')) }}
                                                         {{ Form::button('<i class="fa fa-fw fa-pencil"></i> Edit', ['class' => 'btn btn-default btn-sm', 'type' => 'submit']) }}
                                                     {{ Form::close() }}
                                                     {{ Form::open(array('url' => '/page/'.$page->slug, 'method' => 'get')) }}
                                                         {{ Form::button('<i class="fa fa-fw fa-external-link"></i> View', ['class' => 'btn btn-default btn-sm', 'type' => 'submit']) }}
                                                     {{ Form::close() }}
-                                                    {{ Form::open(array('url' => '/admin/pages/'. $page->id . '', 'method' => 'delete')) }}
+                                                    {{ Form::open(array('url' => '/admin/blog/'. $page->id . '', 'method' => 'delete')) }}
                                                         {{ Form::button('<i class="fa fa-fw fa-times-circle"></i> Delete', ['class' => 'btn btn-default btn-sm', 'type' => 'submit'])}}
                                                     {{ Form::close() }}
                                                 </div>
@@ -43,22 +43,15 @@
                             </div>
                     </div>
                     <div class="col-md-4">
-                    	<div class="box box-info">
+                        <div class="box box-info">
                             <div class="box-header">
                                 <i class="fa fa-gears"></i>
                                 <h3 class="box-title">Settings</h3>
                             </div><!-- /.box-header -->
                             <div class="box-body">
-                            	<label for="meta_robots">Robots: </label>
-                                <select name="meta_robots" id="" class="form-control">
-                                	<option value="INDEX, FOLLOW">Index and follow (Recomended)</option>
-                                	<option value="NOINDEX, FOLLOW">No Index, follow</option>
-                                	<option value="INDEX, NOFOLLOW">Index, No Follow</option>
-                                	<option value="NOINDEX, NOFOLLOW">No Index, No Follow</option>
-                                </select>
                             </div><!-- /.box-body -->
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <a href="/admin/pages/create" class="btn btn-primary">Create New</a>
                             </div>
                         </div>
                     </div>
