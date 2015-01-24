@@ -13,7 +13,7 @@ This is not production ready...so use at your own risk. This is a very early rel
 * Add the following to your `app/app.php` under service providers:
 ```php
 'providers' => [
-    'Shoulderscms\Shoulderscms\PagesServiceProvider',
+    'Shoulderscms\Pages\PagesServiceProvider',
 ]
 ```
 * Run package migrations by running the following in terminal:
