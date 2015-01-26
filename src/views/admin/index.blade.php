@@ -25,13 +25,13 @@
                                             <td>{{ $page->title }}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    {{ Form::open(array('url' => '/admin/blog/' . $page->id . '/edit', 'method' => 'get')) }}
+                                                    {{ Form::open(array('url' => '/admin/pages/' . $page->id . '/edit', 'method' => 'get')) }}
                                                         {{ Form::button('<i class="fa fa-fw fa-pencil"></i> Edit', ['class' => 'btn btn-default btn-sm', 'type' => 'submit']) }}
                                                     {{ Form::close() }}
                                                     {{ Form::open(array('url' => '/page/'.$page->slug, 'method' => 'get')) }}
                                                         {{ Form::button('<i class="fa fa-fw fa-external-link"></i> View', ['class' => 'btn btn-default btn-sm', 'type' => 'submit']) }}
                                                     {{ Form::close() }}
-                                                    {{ Form::open(array('url' => '/admin/blog/'. $page->id . '', 'method' => 'delete')) }}
+                                                    {{ Form::open(array('url' => '/admin/pages/'. $page->id . '', 'method' => 'delete')) }}
                                                         {{ Form::button('<i class="fa fa-fw fa-times-circle"></i> Delete', ['class' => 'btn btn-default btn-sm', 'type' => 'submit'])}}
                                                     {{ Form::close() }}
                                                 </div>
