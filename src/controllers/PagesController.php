@@ -52,7 +52,7 @@ class PagesController extends \BaseController {
 		$page->content = Input::get('content');
 		$page->slug = Safeurl::make(Input::get('title'));
 		$page->meta_id = $meta->id;
-		$page->home_page = Input::get('home_page');
+		$page->home_page = (Input::get('home_page')) ? Input::get('home_page') : 0;
 		$page->save();
 
 		$this->setHomePage($page);
