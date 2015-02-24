@@ -153,13 +153,14 @@ class PagesController extends \BaseController {
 
 	public function setHomePage($page)
 	{
-		$remove = Pages::where('home_page', 1)->get();
-		foreach ($remove as $p) {
-			if($p->id != $page->id) {
-				$p->home_page = 0;
-				$p->save();
+		if($page->home_page == 1) {
+			$remove = Pages::where('home_page', 1)->get();
+			foreach ($remove as $p) {
+				if($p->id != $page->id) {
+					$p->home_page = 0;
+					$p->save();
+				}
 			}
 		}
-
 	}
 }
