@@ -7,7 +7,7 @@
     @else
         {{ Form::model($page, array('url' => 'admin/pages')) }}
     @endif
-    
+
 	 <!-- Main content -->
             <section class="content">
                 <!-- Small boxes (Stat box) -->
@@ -54,7 +54,7 @@
                             </div><!-- /.box-header -->
                             <div class="box-body">
                             	<label for="meta_robots">Robots: </label>
-                                
+
                                 {{ Form::select('meta_robots', array(
                                     'INDEX, FOLLOW' => 'Index and follow (Recomended)',
                                     'NOINDEX, FOLLOW' => 'No Index, follow',
@@ -62,6 +62,10 @@
                                     'NOINDEX, NOFOLLOW' => 'No Index, No Follow',
                                 ), null, ['class' => 'form-control']) }}
                             </div><!-- /.box-body -->
+                            <div class="box-body">
+                                <label for="">Is Home Page?</label><br />
+                                {{ Form::checkbox('home_page', true) }}
+                            </div>
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </div>
@@ -78,6 +82,6 @@
                 //bootstrap WYSIHTML5 - text editor
                 $(".textarea").wysihtml5();
             });
-        
+
             </script>
 @stop
