@@ -1,5 +1,10 @@
 @extends('shoulderscms::AdminLTE.layouts.master')
 
+@section('headercss')
+    <!-- Summernote -->
+    <link href="{{ asset('packages/shoulderscms/shoulderscms/css/summernote/summernote.css') }}" rel="stylesheet" type="text/css" />
+@stop
+
 @section('main')
     @if (!empty($page))
 	   {{ Form::model($page, array('url' => ['admin/pages', $page['id']], 'method' => 'put')) }}
@@ -27,7 +32,7 @@
                                     </div>
                                     <div class="form-group">
                                     	<label for="pageContent">Content:</label>
-                                        {{ Form::textarea('content', null, ['class' => 'form-control textarea', 'rows' => 10, 'cols' => 30]) }}
+                                        {{ Form::textarea('content', null, ['class' => 'form-control textarea summernote', 'rows' => 10, 'cols' => 30]) }}
                                     </div>
                                 </div><!-- /.tab-pane -->
                                 <div class="tab-pane" id="tab_2">
@@ -84,4 +89,24 @@
             });
 
             </script>
+@stop
+
+@section('footerjs')
+    <!-- Summernote -->
+    <script src="{{ asset('packages/shoulderscms/shoulderscms/js/plugins/summernote/summernote.min.js') }}" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.summernote').summernote({
+              toolbar: [
+                ['style', ['style']],
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture']],
+                ['view', ['codeview']]
+              ]
+            });
+        });
+    </script>
 @stop
